@@ -8,3 +8,8 @@ class TestSpreadSheet(TestCase):
        spreadsheet = SpreadSheet()
        spreadsheet.set("A1", "1")
        self.assertEqual(1, spreadsheet.evaluate("A1"))
+
+   def test_evaluate_string(self):
+       spreadsheet = SpreadSheet()
+       spreadsheet.set("A1", "Apple")
+       self.assertEqual("Apple", spreadsheet.evaluate("A1"))
