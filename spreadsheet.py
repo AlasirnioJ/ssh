@@ -9,6 +9,10 @@ class SpreadSheet:
 
     def evaluate(self, cell: str):
         value = self._cells[cell]
+        if value.startswith("="):
+            if value[1:].startswith("'") and value[-1] == "'":
+                return value[2:-1]
+            return "#Error"
         try:
             return int(value)
         except ValueError:
@@ -18,5 +22,5 @@ class SpreadSheet:
                 float(value)
                 return "#Error"
             except ValueError:
-                return "#Error"  # This line is modified to return "#Error" for improperly quoted strings or other invalid inputs.
+                return "#Error"
 
