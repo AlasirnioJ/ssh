@@ -18,5 +18,5 @@ class SpreadSheet:
                 float(value)
                 return "#Error"
             except ValueError:
-                return value
+                return "#Error"  # This line is modified to return "#Error" for improperly quoted strings or other invalid inputs.
 
