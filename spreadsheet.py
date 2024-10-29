@@ -8,8 +8,13 @@ class SpreadSheet:
         self._cells[cell] = value
 
     def evaluate(self, cell: str):
+        value = self._cells[cell]
         try:
-            return int(self._cells[cell])
+            return int(value)
         except ValueError:
-            return self._cells[cell]
+            try:
+                float(value)
+                return "#Error"
+            except ValueError:
+                return value
 
