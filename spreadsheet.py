@@ -15,6 +15,9 @@ class SpreadSheet:
             try:
                 return int(value[1:])
             except ValueError:
+                # Check if it's a reference to another cell
+                if value[1:] in self._cells:
+                    return self.evaluate(value[1:])
                 return "#Error"
         try:
             return int(value)
