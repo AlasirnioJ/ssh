@@ -9,6 +9,7 @@ class SpreadSheet:
 
     def evaluate(self, cell: str):
         value = self._cells[cell]
+        # check that there is no circular reference
         if value.startswith("="):
             if value[1:].startswith("'") and value[-1] == "'":
                 return value[2:-1]
